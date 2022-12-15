@@ -17,16 +17,24 @@ import {
   export default function SimpleCard() {
     const [email,setemail] = useState("")
     const [Password,setPassword] = useState("")
+    // const [Auth,setAuth] = useState(false)
 
     const login= async ()=>{
         try {
             let res = await fetch(`https://mockserver-fhbg.onrender.com/users`)
         let data = await res.json()
         console.log(data)
+      let Auth = false
+      for(let i in data){
+        if(data[i].email === email && data[i].Password === Password){
+                 Auth=true;
+        }
+      }
+      console.log(Auth)
         } catch (error) {
             console.log(error)
         }
-        
+       
     }
 
 
