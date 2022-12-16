@@ -12,9 +12,9 @@ export default function Pricecards(){
     return (
        <div className='cards1'>
         <div>
-            <h3>Free</h3>
+            <span style={{fontSize:"20px", fontWeight:"bold"}}>Free</span>
             <p>For individuals or very small teams just getting started with Airtable</p>
-            <HStack justifyContent="center">
+            <HStack justifyContent="center" marginTop="40px">
               
               <Text textAlign="left" color="#333" fontSize="64px" fontWeight="600">
                 Free
@@ -33,6 +33,7 @@ export default function Pricecards(){
   fontWeight="bold"
   marginLeft="10%"
   backgroundColor="white"
+  marginTop="20px"
 >
   Sign up
 </Button>
@@ -59,9 +60,9 @@ export default function Pricecards(){
 </div>
         </div>
         <div style={{backgroundColor:"#ffeab6"}}>
-            <h3>Plus</h3>
+        <span style={{fontSize:"20px", fontWeight:"bold"}}>Plus</span>
             <p>For teams looking to create connected apps to manage their own workflows</p>
-            <HStack justifyContent="center">
+            <HStack justifyContent="center" marginTop="40px">
               
               <Text fontSize="64px" color="#333" fontWeight="600">
                 $10
@@ -82,6 +83,7 @@ export default function Pricecards(){
   fontWeight="bold"
   marginLeft="10%"
   backgroundColor="white"
+  marginTop="20px"
 >
   Try for free
 </Button>
@@ -108,9 +110,9 @@ export default function Pricecards(){
 </div>
         </div>
         <div style={{backgroundColor:"#d0f0fd"}}>
-            <h3>Pro</h3>
+        <span style={{fontSize:"20px", fontWeight:"bold"}}>Pro</span>
             <p>For teams and departments who need to build connected apps to power their most important processes</p>
-            <HStack justifyContent="center">
+            <HStack justifyContent="center" marginTop="40px">
               <Text fontSize="64px" color="#333" fontWeight="600">
                 $20
               </Text>
@@ -131,7 +133,7 @@ export default function Pricecards(){
   marginLeft="10%"
   backgroundColor="#2d7ff9"
   color="white"
-  
+  marginTop="20px"
 >
   Try for free
 </Button>
@@ -158,11 +160,11 @@ export default function Pricecards(){
 </div>
         </div>
         <div style={{backgroundColor:"#333"}} >
-            <h3 style={{color:"#ffffff"}}>Enterprise</h3>
+        <span style={{fontSize:"20px", fontWeight:"bold",color:"#fff"}}>Enterprise</span>
             <p style={{color:"#ffffff"}}>For departments and organizations who need a secure, scalable, and customizable connected apps platform to stay aligned and move work forward</p>
-            <StarIcon boxSize="30px" color="#999"/>
-            <StarIcon boxSize="30px" color="#999"/>
-            <StarIcon boxSize="30px" color="#999"/>
+            <StarIcon boxSize="30px" marginTop={"20px"} color="#999"/>
+            <StarIcon boxSize="30px" marginTop={"20px"} color="#999"/>
+            <StarIcon boxSize="30px" marginTop={"20px"} color="#999"/>
             <Button
   size='md'
   height='48px'
@@ -175,7 +177,7 @@ export default function Pricecards(){
   fontWeight="bold"
   marginLeft="10%"
   backgroundColor="white"
-  marginTop="180px"
+  marginTop="100px"
 >
   Try for free
 </Button>

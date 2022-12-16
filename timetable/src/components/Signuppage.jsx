@@ -23,10 +23,14 @@ import {
     const [Password, setPassword] = useState("");
     const [name, setname] = useState("");
     const [email, setemail] = useState("");
+    const [load,setload] = useState(false)
   
   const postdata= async ()=>{
-      
-    let res = await fetch(`https://mockserver-fhbg.onrender.com/users`,{
+    setload(true)
+      try {
+   
+
+        let res = await fetch(`https://mockserver-fhbg.onrender.com/users`,{
       method: "POST",
       headers:{
         "Content-Type" : "application/json"
@@ -39,6 +43,14 @@ import {
     })
     let data = await res.json()
     console.log(data)
+    setload(false)
+    alert("signed up successfully")
+      } catch (error) {
+    setload(false)
+
+        console.log(error)
+      }
+    
     setname("")
     setemail("")
     setPassword("")
@@ -108,7 +120,9 @@ import {
                 </InputGroup>
               </FormControl>
               <Stack spacing={10} pt={2}>
-                <Button
+                {load?  <Button isLoading colorScheme='teal' variant='solid'>
+                        Email
+               </Button>:<Button
                 onClick={postdata}
                   loadingText="Submitting"
                   size="lg"
@@ -118,7 +132,7 @@ import {
                     bg: 'blue.500',
                   }}>
                   Sign up
-                </Button>
+                </Button>}
               </Stack>
               <Stack pt={6}>
                 <Text align={'center'}>

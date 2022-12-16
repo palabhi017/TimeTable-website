@@ -11,16 +11,22 @@ import {
     Button,
     Heading,
     Text,
+    Image,
     useColorModeValue,
   } from '@chakra-ui/react';
+  import TimeTable from "../images/TimeTable.jpg"
+
   
   export default function SimpleCard() {
     const [email,setemail] = useState("")
     const [Password,setPassword] = useState("")
-    // const [Auth,setAuth] = useState(false)
+    const [load,setload] = useState(false)
 
     const login= async ()=>{
+      setload(true)
+
         try {
+         
             let res = await fetch(`https://mockserver-fhbg.onrender.com/users`)
         let data = await res.json()
         console.log(data)
@@ -28,13 +34,26 @@ import {
       for(let i in data){
         if(data[i].email === email && data[i].Password === Password){
                  Auth=true;
+                 break;
         }
+      }
+      setload(false)
+      if(Auth==false){
+      
+        alert("Your email or password incorrect")
+      }
+      else{
+        
+        alert("you are loged in successfully")
       }
       console.log(Auth)
         } catch (error) {
+          setload(false)
+
             console.log(error)
         }
-       
+       setemail("")
+       setPassword("")
     }
 
 
@@ -45,6 +64,13 @@ import {
         justify={'center'}
         bg={useColorModeValue('gray.50', 'gray.800')}>
         <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
+        <Image
+      width="40%"
+      margin="auto"
+      objectFit='cover'
+      src={TimeTable}
+      alt='Dan Abramov'
+    />
           <Stack align={'center'}>
             <Heading fontSize={'4xl'}>Sign in to your account</Heading>
             <Text fontSize={'lg'} color={'gray.600'}>
@@ -73,7 +99,9 @@ import {
                   <Checkbox>Remember me</Checkbox>
                   <Link color={'blue.400'}>Forgot password?</Link>
                 </Stack>
-                <Button
+                {load?  <Button isLoading colorScheme='teal' variant='solid'>
+                        Email
+               </Button> : <Button
                 onClick={login}
                   bg={'blue.400'}
                   color={'white'}
@@ -81,7 +109,7 @@ import {
                     bg: 'blue.500',
                   }}>
                   Sign in
-                </Button>
+                </Button>}
               </Stack>
             </Stack>
           </Box>
