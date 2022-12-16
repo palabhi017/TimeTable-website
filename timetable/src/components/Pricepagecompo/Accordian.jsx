@@ -9,13 +9,13 @@ import {
 export default function Accordian(){
 
     return (
-        <>
-        <h1>Frequently asked questions</h1>
-        <Accordion width="60%" margin="auto" allowToggle>
+        <div style={{marginTop:"30px"}}>
+        <p style={{fontSize:"30px",fontWeight:"bold"}}>Frequently asked questions</p>
+        <Accordion  width="60%" margin="auto" marginTop="40px" allowToggle>
   <AccordionItem >
     <h2>
       <AccordionButton padding="10px" border="none" backgroundColor="white" borderBottom="2px solid #999">
-        <Box as="span" flex='1' color="#333" fontSize="23px" textAlign='left'>
+        <Box as="span" flex='1' color="#333" fontSize="22px" textAlign='left'>
         How does Airtable's pricing work?
         </Box>
         <AccordionIcon />
@@ -29,7 +29,7 @@ export default function Accordian(){
   <AccordionItem>
     <h2>
       <AccordionButton padding="10px" border="none" backgroundColor="white" borderBottom="2px solid #999">
-        <Box as="span" flex='1'fontSize="23px" textAlign='left'>
+        <Box as="span" flex='1'fontSize="22px" textAlign='left'>
         How does Airtable's Enterprise pricing work?
         </Box>
         <AccordionIcon />
@@ -43,7 +43,7 @@ export default function Accordian(){
   <AccordionItem>
     <h2>
       <AccordionButton padding="10px" border="none" backgroundColor="white" borderBottom="2px solid #999">
-        <Box as="span" flex='1'fontSize="23px" textAlign='left'>
+        <Box as="span" flex='1'fontSize="22px" textAlign='left'>
         Is Airtable free to use?
         </Box>
         <AccordionIcon />
@@ -56,7 +56,7 @@ export default function Accordian(){
   <AccordionItem>
     <h2>
       <AccordionButton padding="10px" border="none" backgroundColor="white" borderBottom="2px solid #999">
-        <Box as="span" flex='1'fontSize="23px" textAlign='left'>
+        <Box as="span" flex='1'fontSize="22px" textAlign='left'>
         How much does Airtable cost?
         </Box>
         <AccordionIcon />
@@ -69,7 +69,7 @@ export default function Accordian(){
   <AccordionItem>
     <h2>
       <AccordionButton padding="10px" border="none" backgroundColor="white" borderBottom="2px solid #999">
-        <Box as="span" flex='1'fontSize="23px" textAlign='left'>
+        <Box as="span" flex='1'fontSize="22px" textAlign='left'>
         What are my payment options?
         </Box>
         <AccordionIcon />
@@ -82,7 +82,7 @@ export default function Accordian(){
   <AccordionItem>
     <h2>
       <AccordionButton padding="10px" border="none" backgroundColor="white" borderBottom="2px solid #999">
-        <Box as="span" flex='1'fontSize="23px" textAlign='left'>
+        <Box as="span" flex='1'fontSize="22px" textAlign='left'>
         What happens when I hit my usage limits?
         </Box>
         <AccordionIcon />
@@ -95,7 +95,7 @@ export default function Accordian(){
   <AccordionItem>
     <h2>
       <AccordionButton padding="10px" border="none" backgroundColor="white" borderBottom="2px solid #999">
-        <Box as="span" flex='1'fontSize="23px" textAlign='left'>
+        <Box as="span" flex='1'fontSize="22px" textAlign='left'>
         What's an Airtable base?
         </Box>
         <AccordionIcon />
@@ -108,7 +108,7 @@ export default function Accordian(){
   <AccordionItem>
     <h2>
       <AccordionButton padding="10px" border="none" backgroundColor="white" borderBottom="2px solid #999">
-        <Box as="span" flex='1'fontSize="23px" textAlign='left'>
+        <Box as="span" flex='1'fontSize="22px" textAlign='left'>
         What is revision history?
         </Box>
         <AccordionIcon />
@@ -121,7 +121,7 @@ export default function Accordian(){
   <AccordionItem>
     <h2>
       <AccordionButton padding="10px" border="none" backgroundColor="white" borderBottom="2px solid #999">
-        <Box as="span" flex='1'fontSize="23px" textAlign='left'>
+        <Box as="span" flex='1'fontSize="22px" textAlign='left'>
         What are the per-base record and attachment limits?
         </Box>
         <AccordionIcon />
@@ -134,7 +134,7 @@ export default function Accordian(){
   <AccordionItem border="none">
     <h2>
       <AccordionButton padding="8px" border="none" backgroundColor="white" borderBottom="2px solid #999">
-        <Box  as="span" flex='1'fontSize="23px" textAlign='left'>
+        <Box  as="span" flex='1'fontSize="22px" textAlign='left'>
         What are sync integrations?
         </Box>
         <AccordionIcon />
@@ -145,6 +145,6 @@ export default function Accordian(){
     </AccordionPanel>
   </AccordionItem>
 </Accordion>
-</>
+</div>
     )
 }

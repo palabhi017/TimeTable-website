@@ -65,7 +65,7 @@ export default function PriceTable(){
   borderRadius="30px"
   fontSize="15px"
   fontWeight="bold"
-
+  color="black"
   backgroundColor="white"
 
 >

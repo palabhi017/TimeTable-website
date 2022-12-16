@@ -2,8 +2,8 @@
 export default function Questions(){
 
     return (
-        <div>
-            <h1 color="#333">Have additional questions?</h1>
+        <div style={{marginTop:"30px"}}>
+         <p style={{fontSize:"30px", fontWeight:"bold"}}>Have additional questions?</p>
             <div className="Faq">
                 <div><p>BILLING / PRICING</p> <p>Billing FAQ</p></div>
                 <div><p>SPECIAL PLANS FOR</p> <p>Nonprofits or Education</p></div>

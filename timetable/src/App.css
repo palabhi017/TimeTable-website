@@ -40,7 +40,7 @@ height: auto;
 }
 .list1{
   text-align: left;
-  margin-left: -40px;
+  margin-left: 0px;
   font-weight: bold;
   margin-top: 30px;
 }
@@ -139,6 +139,7 @@ tbody>tr>td:nth-child(5){
   width: 50%;
   margin: auto;
   display: flex;
+  margin-top: 30px;
   justify-content: space-around;
 }
 .Faq>div>p:last-child{
