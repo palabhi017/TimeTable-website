@@ -1,4 +1,5 @@
-import {useState} from "react"
+import {useState,useContext} from "react"
+import { useNavigate } from "react-router-dom";
 import {
     Flex,
     Box,
@@ -15,13 +16,15 @@ import {
     useColorModeValue,
   } from '@chakra-ui/react';
   import TimeTable from "../images/TimeTable.jpg"
+import { AuthContext } from "./Authcontext";
 
   
   export default function SimpleCard() {
     const [email,setemail] = useState("")
     const [Password,setPassword] = useState("")
     const [load,setload] = useState(false)
-
+    const navigate = useNavigate()
+   const {settoken,login1} = useContext(AuthContext)
     const login= async ()=>{
       setload(true)
 
@@ -34,6 +37,7 @@ import {
       for(let i in data){
         if(data[i].email === email && data[i].Password === Password){
                  Auth=true;
+                 settoken(data[i].id)
                  break;
         }
       }
@@ -43,8 +47,9 @@ import {
         alert("Your email or password incorrect")
       }
       else{
-        
-        alert("you are loged in successfully")
+        login1()
+        navigate("/pricepage")
+        // alert("you are loged in successfully")
       }
       console.log(Auth)
         } catch (error) {

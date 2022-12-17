@@ -5,6 +5,9 @@ import Signuppage from './components/Signuppage';
 import Loginpage from './components/Loginpage';
 import Home from "./components/Home"
 import Allroutes from './components/Allroutes';
+import Todotable from './components/Todotable';
+
+
 
 function App() {
   return (
@@ -14,6 +17,8 @@ function App() {
      {/* <Loginpage/>  */}
      {/* <Home/> */}
      <Allroutes/>
+     {/* <Todotable/> */}
+     
     </div>
   );
 }

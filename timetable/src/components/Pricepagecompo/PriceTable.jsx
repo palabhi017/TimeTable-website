@@ -1,13 +1,14 @@
 import { CheckIcon, StarIcon } from "@chakra-ui/icons"
 import { Button } from "@chakra-ui/react"
+
 export default function PriceTable(){
 
     return (
-        <div style={{marginTop: "140px"}}>
-            <table>
+  <div className="pricetable" style={{marginTop: "140px"}}>
+      <table>
   <thead>
     <tr>
-      <th>Compare our plans</th>
+      <th >Compare our plans</th>
       <th>Free <br /> <br /> <Button
   size='md'
   height='48px'
