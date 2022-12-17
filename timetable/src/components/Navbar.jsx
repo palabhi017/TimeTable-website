@@ -172,11 +172,11 @@ import {
                 </Button>
               </Link>
   
-              <RouterLink>
+              <Link onClick={()=>navigate("/loginpage")}>
                 <Button colorScheme="blue" color="black" variant="ghost">
                   Sign in
                 </Button>
-              </RouterLink>
+              </Link>
             </Flex>
           </Flex>
         </Box>

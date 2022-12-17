@@ -44,46 +44,42 @@ height: auto;
   font-weight: bold;
   margin-top: 30px;
 }
-table {
+ .pricetable>table {
 
   width: 90%;
   margin: auto;
   border-spacing: 15px 0px;
 }
-th,
-td {
+.pricetable th,
+.pricetable td {
   padding: 1rem;
   
 }
 
-thead {
+.pricetable thead {
   position: sticky;
   top: 0;
   
-  /* border-bottom: 2px solid #ccc; */
-}
-tfoot {
-  position: sticky;
-  bottom: 0;
-  background-color: #ffffff;
+  
 }
 
-thead>tr>th:first-child{
+
+.pricetable thead>tr>th:first-child{
   width: 30%;
   background-color: #ffffff;
 }
-tbody>tr>th:first-child{
+.pricetable tbody>tr>th:first-child{
  text-align: left;
  
 }
-thead>tr>th:nth-child(2){
+.pricetable thead>tr>th:nth-child(2){
   width: 17%;
   font-size: 20px;
   
   background-color: #ffffff;
   font-weight: bolder;
 }
-thead>tr>th:nth-child(3){
+.pricetable thead>tr>th:nth-child(3){
   background-color: #ffeab6;
   border-radius: 15px 15px 0px 0px;
   font-weight: bolder;
@@ -91,17 +87,13 @@ thead>tr>th:nth-child(3){
   font-size: 20px;
 
 }
-tfoot>tr>th:nth-child(3){
+
+.pricetable tbody>tr>td:nth-child(3){
   background-color: #ffeab6;
   font-weight: bold;
 
 }
-tbody>tr>td:nth-child(3){
-  background-color: #ffeab6;
-  font-weight: bold;
-
-}
-thead>tr>th:nth-child(4){
+.pricetable thead>tr>th:nth-child(4){
   background-color: #d0f0fd;
   border-radius: 15px 15px 0px 0px;
   width: 17%;
@@ -109,17 +101,17 @@ thead>tr>th:nth-child(4){
 
 }
 
-tbody>tr>td:nth-child(4){
+.pricetable tbody>tr>td:nth-child(4){
   background-color: #d0f0fd;
   font-weight: bold;
 
 }
-thead>tr>th:nth-child(1){
+.pricetable thead>tr>th:nth-child(1){
   background-color: #ffffff;
   font-size: 30px;
 
 }
-thead>tr>th:nth-child(5){
+.pricetable thead>tr>th:nth-child(5){
   background-color: #333;
   color: #ffffff;
   border-radius: 15px 15px 0px 0px;
@@ -129,12 +121,12 @@ thead>tr>th:nth-child(5){
 
 
 }
-tbody>tr>td:nth-child(5){
+.pricetable tbody>tr>td:nth-child(5){
   background-color: #333;
   color: #ffffff;
   font-weight: bold;
 
-}
+}   
 .Faq{
   width: 50%;
   margin: auto;

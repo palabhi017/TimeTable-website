@@ -18,13 +18,14 @@ import {
   import { useState } from 'react';
   import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
   import TimeTable from "../images/TimeTable.jpg"
+import {  useNavigate } from 'react-router-dom';
   
   export default function SignupCard() {
     const [Password, setPassword] = useState("");
     const [name, setname] = useState("");
     const [email, setemail] = useState("");
     const [load,setload] = useState(false)
-  
+    const navigate = useNavigate()
   const postdata= async ()=>{
     setload(true)
       try {
@@ -44,7 +45,8 @@ import {
     let data = await res.json()
     console.log(data)
     setload(false)
-    alert("signed up successfully")
+    navigate("/loginpage")
+   
       } catch (error) {
     setload(false)
 
@@ -90,7 +92,7 @@ import {
                 <Box>
                   <FormControl id="firstName" isRequired>
                     <FormLabel>Name</FormLabel>
-                    <Input value={name} onChange={(e)=> setname(e.target.value)}  type="text" />
+                    <Input style={{width:"340px"}} value={name} onChange={(e)=> setname(e.target.value)}  type="text" />
                   </FormControl>
                 </Box>
                 {/* <Box>
@@ -136,7 +138,7 @@ import {
               </Stack>
               <Stack pt={6}>
                 <Text align={'center'}>
-                  Already a user? <Link color={'blue.400'}>Login</Link>
+                  Already a user? <Link onClick={()=>navigate("/loginpage")} color={'blue.400'}>Login</Link>
                 </Text>
               </Stack>
             </Stack>
