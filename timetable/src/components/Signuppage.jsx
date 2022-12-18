@@ -24,6 +24,7 @@ import {  useNavigate } from 'react-router-dom';
     const [Password, setPassword] = useState("");
     const [name, setname] = useState("");
     const [email, setemail] = useState("");
+    const [todos, settodos] = useState([]);
     const [load,setload] = useState(false)
     const navigate = useNavigate()
   const postdata= async ()=>{
@@ -39,7 +40,8 @@ import {  useNavigate } from 'react-router-dom';
       body: JSON.stringify({
         name,
         email,
-        Password
+        Password,
+        todos
       })
     })
     let data = await res.json()

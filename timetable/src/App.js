@@ -6,7 +6,7 @@ import Loginpage from './components/Loginpage';
 import Home from "./components/Home"
 import Allroutes from './components/Allroutes';
 import Todotable from './components/Todotable';
-
+import Card from "./components/Cards"
 
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
      {/* <Home/> */}
      <Allroutes/>
      {/* <Todotable/> */}
-     
+     {/* <Card/> */}
     </div>
   );
 }

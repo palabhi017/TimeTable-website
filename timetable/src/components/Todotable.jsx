@@ -11,7 +11,65 @@ import {
     TableContainer,
   } from '@chakra-ui/react'
 import {RepeatClockIcon,QuestionOutlineIcon,CopyIcon,BellIcon,ChevronDownIcon,SmallAddIcon} from "@chakra-ui/icons"
+import { useState,useContext } from "react"
+import { AuthContext } from "./Authcontext";
+import { useEffect } from "react";
+
 export default function Todotable(){
+
+  const [workname,setworkname] = useState("")
+  const [notes,setnotes] = useState("")
+  const [assignee,setassignee] = useState("")
+  const [status,setstatus] = useState(false)
+  const {token} = useContext(AuthContext)
+
+const [todoarr,settodoarr]= useState([])
+
+useEffect(()=>{
+  getuserdata()
+},[])
+const getuserdata= async () =>{
+  try {
+      let res = await fetch(`https://mockserver-fhbg.onrender.com/users/${token}`)
+  let data = await res.json()
+  console.log(data)
+  settodoarr(data.todos)
+  } catch (error) {
+      console.log(error)
+  }
+  
+}
+
+
+  const postdata= async ()=>{
+    
+      try {
+   
+
+        let res = await fetch(`https://mockserver-fhbg.onrender.com/users/${token}`,{
+      method: "PATCH",
+      headers:{
+        "Content-Type" : "application/json"
+      },
+      body: JSON.stringify({
+        todos : [...todoarr,{workname,notes,assignee,status}]
+      })
+    })
+    let data = await res.json()
+    console.log(data)
+    getuserdata()
+    
+   
+      } catch (error) {
+    
+
+        console.log(error)
+      }
+    
+   
+  }
+
+
 
     return (
         <>
@@ -64,10 +122,10 @@ export default function Todotable(){
       <Tr style={{columnGap: "none", padding: 0, margin: 0}}>
       <Td style={{padding: 0, margin: 0}}>1</Td>
 
-        <Td style={{padding: 0, margin: 0}}><Input style={{borderRadius: 0, width: "100%", padding: 0, margin: 0}}></Input></Td>
-        <Td style={{padding: 0, margin: 0}}><Input style={{borderRadius: 0, padding: 0, margin: 0}}></Input></Td>
-        <Td style={{padding: 0, margin: 0}}><Input style={{borderRadius: 0, padding: 0, margin: 0}}></Input></Td>
-        <Td style={{padding: 0, margin: 0}}><select style={{width:"100%",height:"100%",border:"none"}}>
+        <Td style={{padding: 0, margin: 0}}><Input onChange={(e)=>setworkname(e.target.value)} style={{borderRadius: 0, width: "100%", padding: 0, margin: 0}}></Input></Td>
+        <Td style={{padding: 0, margin: 0}}><Input onChange={(e)=>setnotes(e.target.value)} style={{borderRadius: 0, padding: 0, margin: 0}}></Input></Td>
+        <Td style={{padding: 0, margin: 0}}><Input onChange={(e)=>setassignee(e.target.value)} style={{borderRadius: 0, padding: 0, margin: 0}}></Input></Td>
+        <Td style={{padding: 0, margin: 0}}><select onChange={(e)=>setstatus(e.target.value)} style={{width:"100%",height:"100%",border:"none"}}>
             <option value="Not started">Not started</option>
             <option value="In progress">In progress</option>
             </select></Td>
@@ -109,7 +167,7 @@ export default function Todotable(){
       </Table>
       </TableContainer>
 
-    <Button left={"40px"} p={"10px 30px"} borderRadius={"30px"} position={"fixed"} top="550px"><SmallAddIcon/>Add..</Button>
+    <Button onClick={postdata} left={"40px"} p={"10px 30px"} borderRadius={"30px"} position={"fixed"} top="550px"><SmallAddIcon/>Add..</Button>
     </>
     )
 }

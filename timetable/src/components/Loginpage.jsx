@@ -48,7 +48,7 @@ import { AuthContext } from "./Authcontext";
       }
       else{
         login1()
-        navigate("/pricepage")
+        navigate("/dashboard")
         // alert("you are loged in successfully")
       }
       console.log(Auth)
