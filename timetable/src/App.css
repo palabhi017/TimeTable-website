@@ -143,3 +143,16 @@ height: auto;
   font-size: 15px;
   font-weight: bold;
 }
+.slide-in {
+  animation: slide-in 0.5s forwards;
+  position: absolute;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(400%);
+  }
+  to {
+    transform: translateX(285%);
+  }
+}

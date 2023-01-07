@@ -10,17 +10,23 @@ import {
     TableCaption,
     TableContainer,
   } from '@chakra-ui/react'
+ import React from "react"
 import {RepeatClockIcon,QuestionOutlineIcon,CopyIcon,BellIcon,ChevronDownIcon,SmallAddIcon} from "@chakra-ui/icons"
 import { useState,useContext } from "react"
+import { useDisclosure } from '@chakra-ui/react'
 import { AuthContext } from "./Authcontext";
 import { useEffect } from "react";
+import Sideimg from "../images/Sideimg.jpeg"
 
 export default function Todotable(){
-
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const [placement, setPlacement] = React.useState('right')
   const [workname,setworkname] = useState("")
   const [notes,setnotes] = useState("")
   const [assignee,setassignee] = useState("")
   const [status,setstatus] = useState(false)
+  
+  const [date,setdate] =useState("")
   const {token} = useContext(AuthContext)
 
 const [todoarr,settodoarr]= useState([])
@@ -52,7 +58,7 @@ const getuserdata= async () =>{
         "Content-Type" : "application/json"
       },
       body: JSON.stringify({
-        todos : [...todoarr,{workname,notes,assignee,status}]
+        todos : [...todoarr,{workname,notes,assignee,status,date}]
       })
     })
     let data = await res.json()
@@ -96,6 +102,9 @@ const getuserdata= async () =>{
         <Box textAlign={"center"} borderRadius={"5px 5px 0px 0px"} h={"100%"} ml={"20px"} width={"7%"} bgColor={"white"}>Table</Box>
         <ChevronDownIcon boxSize={"20px"} color={"white"}/>
     </HStack>
+    <div class="slide-in">
+  <img src={Sideimg} alt="Your image description" />
+    </div>
     <HStack  h="40px"  gap={"30px"}>
         <Box ml={"40px"}>Views</Box>
         <Box>Grid view</Box>
@@ -107,7 +116,9 @@ const getuserdata= async () =>{
         <Box>Share View</Box>
         
     </HStack>
-    <TableContainer style={{padding: 20, margin: 0,ml:"20px"}}>
+   
+
+ <TableContainer style={{padding: 20, margin: 0,ml:"20px"}}>
   <Table style={{borderCollapse: "collapse", width: "60%",ml:"20px"}}>
     <Thead>
       <Tr style={{padding: 0, margin: 0}}>
@@ -115,7 +126,7 @@ const getuserdata= async () =>{
         <Th style={{textAlign: "center", padding: 0, margin: 0}}>Name</Th>
         <Th style={{padding: 0, margin: 0}}>Notes</Th> 
         <Th style={{padding: 0, margin: 0}}>Assignee</Th>
-        <Th style={{padding: 0, margin: 0}}>Status</Th>
+        <Th style={{padding: 0, margin: 0}}>Deadline</Th>
       </Tr>
     </Thead>
     <Tbody>
@@ -125,10 +136,7 @@ const getuserdata= async () =>{
         <Td style={{padding: 0, margin: 0}}><Input onChange={(e)=>setworkname(e.target.value)} style={{borderRadius: 0, width: "100%", padding: 0, margin: 0}}></Input></Td>
         <Td style={{padding: 0, margin: 0}}><Input onChange={(e)=>setnotes(e.target.value)} style={{borderRadius: 0, padding: 0, margin: 0}}></Input></Td>
         <Td style={{padding: 0, margin: 0}}><Input onChange={(e)=>setassignee(e.target.value)} style={{borderRadius: 0, padding: 0, margin: 0}}></Input></Td>
-        <Td style={{padding: 0, margin: 0}}><select onChange={(e)=>setstatus(e.target.value)} style={{width:"100%",height:"100%",border:"none"}}>
-            <option value="Not started">Not started</option>
-            <option value="In progress">In progress</option>
-            </select></Td>
+        <Td style={{padding: 0, margin: 0}}><Input type={"date"} onChange={(e)=>setdate(e.target.value)}/></Td>
       </Tr>
       <Tr style={{columnGap: "none", padding: 0, margin: 0}}>
       <Td style={{padding: 0, margin: 0,w:"10px"}}>2</Td>
@@ -136,30 +144,21 @@ const getuserdata= async () =>{
         <Td style={{padding: 0, margin: 0}}><Input style={{borderRadius: 0, width: "100%", padding: 0, margin: 0}}></Input></Td>
         <Td style={{padding: 0, margin: 0}}><Input style={{borderRadius: 0, padding: 0, margin: 0}}></Input></Td>
         <Td style={{padding: 0, margin: 0}}><Input style={{borderRadius: 0, padding: 0, margin: 0}}></Input></Td>
-        <Td style={{padding: 0, margin: 0}}><select style={{width:"100%",height:"100%",border:"none"}}>
-            <option value="Not started">Not started</option>
-            <option value="In progress">In progress</option>
-            </select></Td>
+        <Td style={{padding: 0, margin: 0}}><Input type={"date"} onChange={(e)=>setdate(e.target.value)}/></Td>
       </Tr>
       <Tr style={{columnGap: "none", padding: 0, margin: 0}}>
       <Td style={{padding: 0, margin: 0,w:"10px"}}>3</Td>
         <Td style={{padding: 0, margin: 0}}><Input style={{borderRadius: 0, width: "100%", padding: 0, margin: 0}}></Input></Td>
         <Td style={{padding: 0, margin: 0}}><Input style={{borderRadius: 0, padding: 0, margin: 0}}></Input></Td>
         <Td style={{padding: 0, margin: 0}}><Input style={{borderRadius: 0, padding: 0, margin: 0}}></Input></Td>
-        <Td style={{padding: 0, margin: 0}}><select style={{width:"100%",height:"100%",border:"none"}}>
-            <option value="Not started">Not started</option>
-            <option value="In progress">In progress</option>
-            </select></Td>
+        <Td style={{padding: 0, margin: 0}}><Input type={"date"} onChange={(e)=>setdate(e.target.value)}/></Td>
       </Tr>
       <Tr style={{columnGap: "none", padding: 0, margin: 0}}>
         <Td style={{padding: 0, margin: 0,w:"10px"}}>4</Td>
         <Td style={{padding: 0, margin: 0}}><Input style={{borderRadius: 0, width: "100%", padding: 0, margin: 0}}></Input></Td>
         <Td style={{padding: 0, margin: 0}}><Input style={{borderRadius: 0, padding: 0, margin: 0}}></Input></Td>
         <Td style={{padding: 0, margin: 0}}><Input style={{borderRadius: 0, padding: 0, margin: 0}}></Input></Td>
-        <Td style={{padding: 0, margin: 0}}><select style={{width:"100%",height:"100%",border:"none"}}>
-            <option value="Not started">Not started</option>
-            <option value="In progress">In progress</option>
-            </select></Td>
+        <Td style={{padding: 0, margin: 0}}><Input type={"date"} onChange={(e)=>setdate(e.target.value)}/></Td>
       </Tr>
       
       
